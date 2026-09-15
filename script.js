@@ -1,0 +1,1 @@
+document.querySelector('.menu').addEventListener('click',()=>{const n=document.querySelector('nav');n.style.display=n.style.display==='flex'?'none':'flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='68px';n.style.right='4%';n.style.background='#170a05';n.style.padding='18px 22px';n.style.border='1px solid #a96a18';n.style.borderRadius='8px';});
