@@ -1,27 +1,101 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>सनातन संवाद — समाचार, संस्कृति और इतिहास</title><meta name="description" content="सनातन संवाद — समाचार, संस्कृति, इतिहास और धर्म से जुड़ी जानकारी।"><link rel="stylesheet" href="style.css">
-<style>
-.livebar{background:#180805;color:#fff;border-bottom:1px solid #9b5e17;padding:8px 0;font-size:12px}.livebar span{color:#ffc443}.loading{padding:30px;text-align:center;color:#75553f}.empty{padding:30px;background:#fff;border:1px solid #e5c9a6;border-radius:10px}.news-tools{display:flex;gap:10px;margin-bottom:22px}.news-tools input,.news-tools select{padding:11px 13px;border:1px solid #dfc5a2;border-radius:7px;background:#fff;font:inherit}.news-tools input{flex:1}.card .thumb{height:210px;overflow:hidden;background:linear-gradient(135deg,#a90f0f,#ff3b16 45%,#300504)}.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}.readmore{color:#a52e13;font-weight:800;cursor:pointer}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:50;padding:5vh 4%;overflow:auto}.modal.show{display:block}.modalbox{max-width:850px;margin:auto;background:#fffaf1;border-radius:14px;padding:28px;position:relative}.close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:30px;cursor:pointer}.modal img{width:100%;max-height:430px;object-fit:cover;display:block;margin:10px auto;border-radius:10px}.modal h2{font-size:34px;line-height:1.35}.article-meta{font-size:12px;color:#8b6a54;margin:8px 0 18px}@media(max-width:650px){.news-tools{flex-direction:column}.modal h2{font-size:25px}}
-</style></head>
-<body><header class="top"><div class="wrap nav"><a class="brand" href="#home"><img src="assets/logo.png" alt="सनातन संवाद"><div><b>सनातन संवाद</b><span>तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज़</span></div></a><button class="menu">☰</button><nav><a href="#home">होम</a><a href="#news">समाचार</a><a href="#culture">संस्कृति</a><a href="#history">इतिहास</a><a href="#dharma">धर्म</a><a href="admin.html">एडमिन</a></nav></div></header>
-<div class="livebar"><div class="wrap">● <span>LIVE</span> — सनातन संवाद पर ताज़ा खबरें</div></div>
-<main id="home"><section class="hero wrap"><div class="hero-copy"><div class="tag">BREAKING • सनातन संवाद</div><h1>समाचार, संस्कृति और इतिहास — <em>तथ्यों के साथ।</em></h1><p>देश-दुनिया की खबरों के साथ भारतीय संस्कृति, धर्म और इतिहास से जुड़ी जानकारी एक ही जगह।</p><div class="actions"><a class="btn primary" href="#news">आज की खबरें देखें</a><a class="btn ghost" href="#about">हमारे बारे में</a></div></div><div class="hero-card"><img src="assets/logo.png" alt="सनातन संवाद"><div class="hero-card-text">सही खबर • सही दृष्टिकोण</div></div></section>
-<div class="ticker"><div class="wrap"><b>ताज़ा:</b> सनातन संवाद पर आपका स्वागत है — खबरें, विचार और भारतीय विरासत की जानकारी।</div></div>
-<section id="news" class="wrap section"><div class="section-head"><div><span>01</span><h2>आज की बड़ी खबरें</h2></div></div><div class="news-tools"><input id="search" placeholder="खबर खोजें…" oninput="renderFeed()"><select id="filter" onchange="renderFeed()"><option value="">सभी कैटेगरी</option><option>समाचार</option><option>राजनीति</option><option>उत्तर प्रदेश</option><option>राष्ट्रीय</option><option>अंतरराष्ट्रीय</option><option>संस्कृति</option><option>इतिहास</option><option>धर्म</option><option>ग्राउंड रिपोर्ट</option></select></div><div id="newsFeed" class="grid"><div class="loading">खबरें लोड हो रही हैं…</div></div></section>
-<section id="culture" class="band"><div class="wrap section"><div class="section-head"><div><span>02</span><h2>सनातन संस्कृति</h2></div></div><div class="feature-row"><div><h3>जुड़िए अपनी जड़ों से</h3><p>भारतीय संस्कृति की कहानियां, परंपराएं और ज्ञान सरल भाषा में।</p></div><div class="quote">“हमारी संस्कृति, हमारी पहचान।”</div></div></div></section>
-<section id="history" class="wrap section"><div class="section-head"><div><span>03</span><h2>इतिहास</h2></div></div><div class="history-box"><div><strong>भारत का गौरवशाली अतीत</strong><p>ऐतिहासिक स्थलों, ग्रंथों, व्यक्तित्वों और महत्वपूर्ण घटनाओं पर जानकारी।</p></div></div></section>
-<section id="dharma" class="dark-section"><div class="wrap section"><div class="section-head light"><div><span>04</span><h2>धर्म और अध्यात्म</h2></div></div><div class="dh-grid"><div><div class="icon">ॐ</div><h3>आध्यात्म</h3><p>आध्यात्मिक विचार, ग्रंथ और जीवन से जुड़े सकारात्मक संदेश।</p></div><div><div class="icon">◉</div><h3>धार्मिक स्थल</h3><p>भारत के प्रमुख तीर्थ और धार्मिक परंपराओं की जानकारी।</p></div><div><div class="icon">✦</div><h3>प्रेरणा</h3><p>सही ज्ञान और बेहतर जीवन के लिए उपयोगी सामग्री।</p></div></div></div></section>
-<section id="about" class="wrap section about"><div class="about-logo"><img src="assets/logo.png" alt="सनातन संवाद"></div><div><span class="eyebrow">हमारा उद्देश्य</span><h2>सही खबर, सही दृष्टिकोण</h2><p>सनातन संवाद समाचार, भारतीय संस्कृति, धर्म और इतिहास से जुड़ी सामग्री को पाठकों तक पहुंचाने का प्रयास है।</p></div></section></main>
-<footer><div class="wrap footer"><div><b>सनातन संवाद</b><p>तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज़।</p></div></div><div class="copy">© 2026 सनातन संवाद • सभी अधिकार सुरक्षित</div></footer>
-<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
-<script>
-const client=window.SUPABASE_CONFIGURED?supabase.createClient(window.SUPABASE_URL,window.SUPABASE_PUBLISHABLE_KEY):null;const feed=document.getElementById('newsFeed');let allNews=[],newsMap={};
-function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function card(n){newsMap[n.id]=n;return `<article class="card"><div class="thumb">${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}" loading="lazy" onerror="this.remove()">`:'समाचार'}</div><div class="pad"><span class="pill red">${esc(n.category)}</span><h3>${esc(n.title)}</h3><p>${esc(n.excerpt||'')}</p><span class="readmore" onclick="openStory('${n.id}')">पूरी खबर पढ़ें →</span></div></article>`}
-function renderFeed(){const q=(document.getElementById('search').value||'').toLowerCase().trim(),cat=document.getElementById('filter').value;const rows=allNews.filter(n=>(!cat||n.category===cat)&&(!q||(n.title+' '+n.excerpt+' '+n.content).toLowerCase().includes(q)));feed.innerHTML=rows.length?rows.map(card).join(''):'<div class="empty">इस खोज के लिए कोई प्रकाशित खबर नहीं मिली।</div>'}
-async function loadNews(){if(!client){feed.innerHTML='<div class="empty">वेबसाइट अभी setup mode में है। Supabase configuration जोड़ने के बाद यहाँ लाइव खबरें दिखेंगी।</div>';return}const {data,error}=await client.from('news').select('*').eq('published',true).order('published_at',{ascending:false}).limit(60);if(error){feed.innerHTML='<div class="empty">खबरें लोड नहीं हो सकीं। Database setup जांचें।</div>';console.error(error);return}allNews=data||[];renderFeed()}
-function openStory(id){const n=newsMap[id];if(!n)return;document.getElementById('modalContent').innerHTML=`<span class="pill red">${esc(n.category)}</span><h2>${esc(n.title)}</h2><div class="article-meta">${n.published_at?new Date(n.published_at).toLocaleString('hi-IN'):''}</div>${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}">`:''}<p>${esc(n.content).replace(/\n/g,'<br>')}</p>`;document.getElementById('modal').classList.add('show');document.body.style.overflow='hidden'}
-function closeModal(){document.getElementById('modal').classList.remove('show');document.body.style.overflow=''}
-loadNews();setInterval(loadNews,30000);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-</script></body></html>
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#8d1b0f">
+  <meta name="description" content="सनातन संवाद — उत्तर प्रदेश और देश की खबरें, धर्म, संस्कृति, इतिहास और लाइव दर्शन।">
+  <title>सनातन संवाद | उत्तर प्रदेश की आवाज़</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topline"><div class="wrap"><span>ॐ नमः शिवाय</span><span id="dateText"></span><span>हरिगढ़ • उत्तर प्रदेश • भारत</span></div></div>
+
+<header class="masthead">
+  <div class="wrap mast-inner">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <a class="brand" href="#home">
+      <img src="assets/logo.png" alt="सनातन संवाद">
+      <div><strong>सनातन संवाद</strong><small>धर्म • संस्कृति • समाचार</small></div>
+    </a>
+    <div class="head-actions">
+      <a href="#darshan" class="gold-btn">🔴 LIVE दर्शन</a>
+      <a href="admin.html" class="admin-link">Admin</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" id="nav"><div class="wrap nav-inner">
+  <a href="#home">होम</a><a href="#up">उत्तर प्रदेश</a><a href="#politics">सियासत</a><a href="#bharat">देश</a>
+  <a href="#dharma">धर्म</a><a href="#culture">संस्कृति</a><a href="#history">इतिहास</a><a href="#darshan">लाइव दर्शन</a>
+  <a href="#video">वीडियो</a>
+</div></nav>
+
+<main id="home">
+<section class="breaking"><div class="wrap breaking-in"><b>⚡ ताज़ा खबर</b><div class="ticker" id="ticker">सनातन संवाद पर पढ़िए उत्तर प्रदेश, देश, धर्म और संस्कृति की प्रमुख खबरें</div></div></section>
+
+<section class="hero wrap">
+  <div class="hero-main">
+    <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1400&q=85')">
+      <span class="live-badge">● LIVE UPDATE</span>
+      <div class="hero-caption"><span>उत्तर प्रदेश</span><h1>अयोध्या, काशी और मथुरा से लेकर लखनऊ तक — हर बड़ी खबर एक जगह</h1><p>सनातन, संस्कृति और उत्तर प्रदेश की सियासत पर तेज़, स्पष्ट और जिम्मेदार कवरेज।</p></div>
+    </div>
+  </div>
+  <aside class="hero-side">
+    <article class="mini-card"><img src="https://images.unsplash.com/photo-1599831069477-b2acdc0b2a8d?auto=format&fit=crop&w=700&q=80"><div><span>अयोध्या</span><h3>रामनगरी की हर बड़ी गतिविधि और अपडेट</h3></div></article>
+    <article class="mini-card"><img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80"><div><span>धर्म</span><h3>दर्शन, पर्व और मंदिरों से जुड़ी जानकारी</h3></div></article>
+    <article class="mini-card"><img src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=700&q=80"><div><span>काशी</span><h3>बाबा विश्वनाथ और गंगा आरती की झलक</h3></div></article>
+  </aside>
+</section>
+
+<section class="wrap section" id="up"><div class="local-ribbon"><b>📍 हरिगढ़ डेस्क</b><span>स्थानीय खबरें • शहर • जनसमस्याएँ • आसपास के क्षेत्र</span></div>
+  <div class="section-head"><div><span class="eyebrow">UTTAR PRADESH</span><h2>उत्तर प्रदेश की बड़ी खबरें</h2></div><a href="#all-news">सभी खबरें →</a></div>
+  <div id="newsGrid" class="news-grid">
+    <article class="news-card featured"><div class="placeholder">📰</div><div class="pad"><span>उत्तर प्रदेश</span><h3>लाइव न्यूज़ सिस्टम से आपकी प्रकाशित खबरें यहाँ अपने आप दिखाई देंगी</h3><p>Admin Panel से खबर, तस्वीर और पूरी स्टोरी प्रकाशित करें।</p></div></article>
+    <article class="news-card"><div class="placeholder">🏛️</div><div class="pad"><span>हरिगढ़</span><h3>हरिगढ़ शहर और आसपास की हर बड़ी खबर</h3></div></article>
+    <article class="news-card"><div class="placeholder">🚩</div><div class="pad"><span>धर्म</span><h3>मंदिर, पर्व, तीर्थ और सनातन परंपरा की खबरें</h3></div></article>
+  </div>
+</section>
+
+<section class="politics wrap" id="politics">
+  <div class="section-head light"><div><span class="eyebrow">POLITICS DESK</span><h2>उत्तर प्रदेश सियासत</h2></div><span class="balanced">सरकार • विपक्ष • जनता</span></div>
+  <div class="pol-grid">
+    <div class="pol-card yogi"><div class="pol-label">सरकार / सत्ता पक्ष</div><h3>योगी सरकार का हिसाब-किताब</h3><p>सरकार के फैसले, योजनाएँ, विकास कार्य, बयान और उनके असर पर तथ्य आधारित कवरेज।</p><ul><li>सरकारी फैसले</li><li>विकास और कानून-व्यवस्था</li><li>बजट व योजनाएँ</li></ul></div>
+    <div class="pol-card opp"><div class="pol-label">विपक्ष</div><h3>विपक्ष की आवाज़</h3><p>विपक्ष के आरोप, जवाब, प्रेस कॉन्फ्रेंस और प्रमुख राजनीतिक प्रतिक्रियाएँ — संदर्भ के साथ।</p><ul><li>विपक्षी बयान</li><li>सरकार पर सवाल</li><li>राजनीतिक प्रतिक्रियाएँ</li></ul></div>
+    <div class="pol-card people"><div class="pol-label">जनता</div><h3>जनता क्या कह रही है?</h3><p>स्थानीय मुद्दे, ज़मीनी रिपोर्ट और जनता से जुड़े सवाल — खबर के केंद्र में नागरिक।</p></div>
+  </div>
+</section>
+
+<section class="wrap section" id="darshan">
+  <div class="section-head"><div><span class="eyebrow">LIVE DARSHAN</span><h2>घर बैठे पावन दर्शन</h2></div><p class="muted">जहाँ आधिकारिक लाइव सेवा उपलब्ध है, वहाँ सीधे आधिकारिक स्रोत से जोड़ेंगे।</p></div>
+  <div class="darshan-grid">
+    <article class="darshan-card ayodhya"><div class="place-photo"></div><div class="d-body"><span>श्रीराम नगरी</span><h3>अयोध्या धाम</h3><p>श्रीराम मंदिर और अयोध्या धाम की जानकारी व लाइव दर्शन लिंक।</p><a class="watch" href="https://www.ayodhya-dham.in/" target="_blank" rel="noopener">LIVE / दर्शन खोलें ↗</a></div></article>
+    <article class="darshan-card kashi"><div class="place-photo"></div><div class="d-body"><span>हर हर महादेव</span><h3>काशी विश्वनाथ</h3><p>आधिकारिक ट्रस्ट की Live Darshan सेवा से जुड़ें।</p><a class="watch" href="https://shrikashivishwanath.org/online/live_darshan" target="_blank" rel="noopener">🔴 LIVE दर्शन ↗</a></div></article>
+    <article class="darshan-card mathura"><div class="place-photo"></div><div class="d-body"><span>राधे राधे</span><h3>श्री कृष्ण जन्मस्थान</h3><p>आधिकारिक सेवा से गर्भगृह के लाइव दर्शन उपलब्ध होने पर सीधे देखें।</p><a class="watch" href="https://www.shrikrishnajanmasthan.com/" target="_blank" rel="noopener">🔴 LIVE दर्शन ↗</a></div></article>
+  </div>
+</section>
+
+<section class="temples wrap" id="culture">
+  <div class="section-head light"><div><span class="eyebrow">तीर्थ और संस्कृति</span><h2>काशी • मथुरा • अयोध्या</h2></div></div>
+  <div class="city-grid">
+    <div class="city kashi-city"><div><b>काशी</b><span>गंगा • विश्वनाथ • घाट</span></div></div>
+    <div class="city mathura-city"><div><b>मथुरा-वृंदावन</b><span>श्रीकृष्ण • ब्रज • भक्ति</span></div></div>
+    <div class="city ayodhya-city"><div><b>अयोध्या</b><span>श्रीराम • सरयू • धाम</span></div></div>
+  </div>
+</section>
+
+<section class="wrap section two-col" id="history">
+  <div><div class="section-head"><div><span class="eyebrow">SANATAN</span><h2>धर्म और इतिहास</h2></div></div><div class="story-list">
+    <div><b>📜</b><div><span>इतिहास</span><h3>भारत की विरासत, मंदिर और ऐतिहासिक स्थलों की कहानियाँ</h3></div></div>
+    <div><b>🪔</b><div><span>धर्म</span><h3>पर्व, व्रत, पूजा परंपरा और धार्मिक ज्ञान</h3></div></div>
+    <div><b>🎭</b><div><span>संस्कृति</span><h3>लोककला, भाषा, संगीत और भारतीय परंपराएँ</h3></div></div>
+  </div></div>
+  <aside class="quote-box"><span>सनातन संवाद</span><h3>खबर भी, संस्कृति भी — अपनी जड़ों से जुड़ी आवाज़।</h3><p>हमारा लक्ष्य: उत्तर प्रदेश और भारत की खबरों को एक खूबसूरत, उपयोगी और जिम्मेदार डिजिटल मंच देना।</p></aside>
+</section>
+
+<section class="video-band" id="video"><div class="video-strip"><span>▶</span><b>वीडियो</b><em>न्यूज़ • ग्राउंड रिपोर्ट • इंटरव्यू • दर्शन</em></div><div class="wrap video-inner"><div><span class="eyebrow">VIDEO DESK</span><h2>देखिए, सुनिए, समझिए</h2><p>वीडियो न्यूज़, ग्राउंड रिपोर्ट, इंटरव्यू और दर्शन के वीडियो यहाँ जोड़े जा सकेंगे।</p></div><a class="gold-btn" href="#home">वीडियो सेक्शन देखें</a></div></section>
+
+<footer><div class="wrap foot"><div><img src="assets/logo.png" alt=""><h3>सनातन संवाद</h3><p>धर्म • संस्कृति • समाचार</p></div><div><b>सेक्शन</b><a href="#up">उत्तर प्रदेश</a><a href="#politics">सियासत</a><a href="#darshan">लाइव दर्शन</a></div><div><b>हमारा मंच</b><a href="#culture">संस्कृति</a><a href="#history">इतिहास</a><a href="#video">वीडियो</a><a href="admin.html">Admin Login</a></div></div><div class="copyright">© 2026 सनातन संवाद • सभी अधिकार सुरक्षित</div></footer>
+
+<script src="config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="script.js"></script>
+</body></html>
