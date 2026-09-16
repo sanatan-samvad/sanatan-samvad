@@ -1,8 +1,139 @@
-<!-- रंग-बिरंगे कैटेगरी सेक्शन -->
-<div class="category-container" style="display: flex; gap: 15px; justify-content: center; margin: 20px 0;">
-  <div class="category-card cat-news">📰<br>समाचार</div>
-  <div class="category-card cat-culture">🛕<br>संस्कृति</div>
-  <div class="category-card cat-history">📜<br>इतिहास</div>
-  <div class="category-card cat-dharma">ॐ<br>धर्म</div>
-  <div class="category-card cat-darshan">🔴<br>लाइव दर्शन</div>
-</div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सनातन संवाद - धर्म • संस्कृति • समाचार</title>
+  <style>
+    :root {
+      --primary-maroon: #2e0805;
+      --secondary-maroon: #4a0800;
+      --accent-saffron: #ff8c00;
+      --gold-yellow: #f1c40f;
+      --text-white: #ffffff;
+      --bg-light: #fdfaf5;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: #333;
+    }
+
+    /* टॉप बार */
+    .top-bar {
+      background: #1a0302;
+      color: #f1c40f;
+      text-align: center;
+      padding: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* हेडर */
+    header {
+      background: linear-gradient(180deg, var(--primary-maroon) 0%, var(--secondary-maroon) 100%);
+      border-bottom: 2px solid var(--gold-yellow);
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: var(--gold-yellow);
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      color: var(--text-white);
+      margin: 5px 0 0 0;
+      font-size: 14px;
+    }
+
+    /* नेविगेशन */
+    nav {
+      background: var(--primary-maroon);
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+
+    /* कैटेगरी कार्ड्स */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cat-box {
+      padding: 15px 25px;
+      border-radius: 8px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      min-width: 100px;
+    }
+
+    .news { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+    .culture { background: linear-gradient(135deg, #d35400, #e67e22); }
+    .history { background: linear-gradient(135deg, #7f8c8d, #2c3e50); }
+    .dharma { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+    .darshan { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+
+    /* फुटर */
+    footer {
+      background: var(--primary-maroon);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-top: 3px solid var(--gold-yellow);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">ॐ नमः शिवाय | हरिगढ़ • उत्तर प्रदेश • भारत</div>
+
+  <header>
+    <h1>सनातन संवाद</h1>
+    <p>धर्म • संस्कृति • समाचार</p>
+  </header>
+
+  <nav>
+    <a href="#home">होम</a>
+    <a href="#up">उत्तर प्रदेश</a>
+    <a href="#politics">सियासत</a>
+    <a href="#dharma">धर्म</a>
+    <a href="#culture">संस्कृति</a>
+    <a href="#history">इतिहास</a>
+    <a href="#darshan">लाइव दर्शन</a>
+  </nav>
+
+  <div class="categories">
+    <div class="cat-box news">📰<br>समाचार</div>
+    <div class="cat-box culture">🛕<br>संस्कृति</div>
+    <div class="cat-box history">📜<br>इतिहास</div>
+    <div class="cat-box dharma">ॐ<br>धर्म</div>
+    <div class="cat-box darshan">🔴<br>लाइव दर्शन</div>
+  </div>
+
+  <footer>
+    <p>© 2026 सनातन संवाद • तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज</p>
+  </footer>
+
+</body>
+</html>
