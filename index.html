@@ -1,139 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>सनातन संवाद - धर्म • संस्कृति • समाचार</title>
-  <style>
-    :root {
-      --primary-maroon: #2e0805;
-      --secondary-maroon: #4a0800;
-      --accent-saffron: #ff8c00;
-      --gold-yellow: #f1c40f;
-      --text-white: #ffffff;
-      --bg-light: #fdfaf5;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-light);
-      color: #333;
-    }
-
-    /* टॉप बार */
-    .top-bar {
-      background: #1a0302;
-      color: #f1c40f;
-      text-align: center;
-      padding: 5px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    /* हेडर */
-    header {
-      background: linear-gradient(180deg, var(--primary-maroon) 0%, var(--secondary-maroon) 100%);
-      border-bottom: 2px solid var(--gold-yellow);
-      padding: 15px;
-      text-align: center;
-    }
-
-    header h1 {
-      color: var(--gold-yellow);
-      margin: 0;
-      font-size: 28px;
-    }
-
-    header p {
-      color: var(--text-white);
-      margin: 5px 0 0 0;
-      font-size: 14px;
-    }
-
-    /* नेविगेशन */
-    nav {
-      background: var(--primary-maroon);
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 5px 10px;
-    }
-
-    /* कैटेगरी कार्ड्स */
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      padding: 20px;
-      flex-wrap: wrap;
-    }
-
-    .cat-box {
-      padding: 15px 25px;
-      border-radius: 8px;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      min-width: 100px;
-    }
-
-    .news { background: linear-gradient(135deg, #c0392b, #e74c3c); }
-    .culture { background: linear-gradient(135deg, #d35400, #e67e22); }
-    .history { background: linear-gradient(135deg, #7f8c8d, #2c3e50); }
-    .dharma { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
-    .darshan { background: linear-gradient(135deg, #27ae60, #2ecc71); }
-
-    /* फुटर */
-    footer {
-      background: var(--primary-maroon);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      border-top: 3px solid var(--gold-yellow);
-      margin-top: 40px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="सनातन संवाद — धर्म, संस्कृति, इतिहास और समाचार">
+  <title>सनातन संवाद | धर्म • संस्कृति • समाचार</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="topbar">ॐ नमः शिवाय <span>•</span> हरिगढ़ • उत्तर प्रदेश • भारत</div>
 
-  <div class="top-bar">ॐ नमः शिवाय | हरिगढ़ • उत्तर प्रदेश • भारत</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="सनातन संवाद होम">
+        <img src="assets/logo.png" alt="सनातन संवाद लोगो">
+        <div>
+          <strong>सनातन संवाद</strong>
+          <small>समाचार, संस्कृति और इतिहास—तथ्यों के साथ</small>
+        </div>
+      </a>
 
-  <header>
-    <h1>सनातन संवाद</h1>
-    <p>धर्म • संस्कृति • समाचार</p>
+      <button class="menu-toggle" aria-label="मेन्यू खोलें" aria-expanded="false">☰</button>
+
+      <nav class="nav" id="nav">
+        <a class="active" href="#home">होम</a>
+        <a href="#up">उत्तर प्रदेश</a>
+        <a href="#politics">सियासत</a>
+        <a href="#dharma">धर्म</a>
+        <a href="#culture">संस्कृति</a>
+        <a href="#history">इतिहास</a>
+        <a href="#darshan">लाइव दर्शन</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#home">होम</a>
-    <a href="#up">उत्तर प्रदेश</a>
-    <a href="#politics">सियासत</a>
-    <a href="#dharma">धर्म</a>
-    <a href="#culture">संस्कृति</a>
-    <a href="#history">इतिहास</a>
-    <a href="#darshan">लाइव दर्शन</a>
-  </nav>
+  <main id="home">
+    <section class="hero">
+      <img src="assets/hero-wide.png" alt="सनातन संवाद — भारत, मंदिर और संस्कृति">
+      <div class="hero-overlay">
+        <span class="eyebrow">सही खबर • सही दृष्टिकोण</span>
+        <h1>तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज़</h1>
+        <p>समाचार, संस्कृति, धर्म और इतिहास से जुड़ी सामग्री एक ही जगह।</p>
+        <a class="cta" href="#latest">ताज़ा सामग्री देखें <span>↓</span></a>
+      </div>
+    </section>
 
-  <div class="categories">
-    <div class="cat-box news">📰<br>समाचार</div>
-    <div class="cat-box culture">🛕<br>संस्कृति</div>
-    <div class="cat-box history">📜<br>इतिहास</div>
-    <div class="cat-box dharma">ॐ<br>धर्म</div>
-    <div class="cat-box darshan">🔴<br>लाइव दर्शन</div>
-  </div>
+    <section class="intro">
+      <div class="intro-copy">
+        <span class="section-kicker">सनातन संवाद</span>
+        <h2>हमारा उद्देश्य</h2>
+        <p>देश-दुनिया की महत्वपूर्ण खबरों के साथ भारतीय संस्कृति, धर्म, मंदिरों और इतिहास से जुड़ी जानकारी को सरल और स्पष्ट रूप में आप तक पहुँचाना।</p>
+      </div>
+      <div class="intro-points">
+        <div><b>समाचार</b><span>स्थानीय और राष्ट्रीय अपडेट</span></div>
+        <div><b>संस्कृति</b><span>परंपरा, पर्व और विरासत</span></div>
+        <div><b>इतिहास</b><span>भारत की ऐतिहासिक धरोहर</span></div>
+        <div><b>धर्म</b><span>आस्था, दर्शन और मंदिर</span></div>
+      </div>
+    </section>
+
+    <section class="categories" aria-label="श्रेणियां">
+      <a href="#latest" class="cat red"><span>📰</span><b>समाचार</b><small>देश-दुनिया और स्थानीय खबरें</small></a>
+      <a href="#culture" class="cat orange"><span>🛕</span><b>सनातन संस्कृति</b><small>पर्व, परंपरा और विरासत</small></a>
+      <a href="#history" class="cat brown"><span>📜</span><b>इतिहास</b><small>भारत की ऐतिहासिक घटनाएं</small></a>
+      <a href="#dharma" class="cat purple"><span>ॐ</span><b>धर्म</b><small>आस्था, दर्शन और मंदिर</small></a>
+      <a href="#darshan" class="cat green"><span>📷</span><b>लाइव दर्शन</b><small>धार्मिक स्थलों की झलक</small></a>
+    </section>
+
+    <section class="section" id="latest">
+      <div class="section-title">
+        <div><span class="section-kicker">Featured</span><h2>आज की प्रमुख सामग्री</h2></div>
+        <a href="#latest">सभी देखें →</a>
+      </div>
+      <div class="news-grid">
+        <article class="news-card featured">
+          <img src="assets/story-ram.png" alt="राम मंदिर विषयक विशेष प्रस्तुति">
+          <div class="news-body">
+            <span class="tag">विशेष रिपोर्ट</span>
+            <h3>अयोध्या और राम मंदिर से जुड़ी महत्वपूर्ण जानकारी</h3>
+            <p>इस कार्ड में आपकी वेबसाइट की ताज़ा खबर, रिपोर्ट या विशेष स्टोरी दिखाई जा सकती है।</p>
+            <a href="#">पूरी खबर पढ़ें →</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img src="assets/darshan.png" alt="धार्मिक दर्शन">
+          <div class="news-body">
+            <span class="tag">लाइव दर्शन</span>
+            <h3>धार्मिक स्थलों की विशेष झलक</h3>
+            <p>मंदिर, दर्शन और धार्मिक आयोजनों की अपडेट यहाँ दिखेगी।</p>
+            <a href="#">देखें →</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img src="assets/about-shiv.png" alt="भारतीय संस्कृति">
+          <div class="news-body">
+            <span class="tag">संस्कृति</span>
+            <h3>भारतीय परंपरा और संस्कृति से जुड़ी सामग्री</h3>
+            <p>त्योहार, परंपरा, विरासत और सांस्कृतिक विषयों के लिए अलग स्थान।</p>
+            <a href="#">पढ़ें →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="strip" id="up">
+      <div>
+        <span class="section-kicker">उत्तर प्रदेश</span>
+        <h2>हरिगढ़ से प्रदेश तक</h2>
+        <p>स्थानीय अपडेट, प्रमुख घटनाएं और उत्तर प्रदेश से जुड़ी सामग्री के लिए यह सेक्शन तैयार है।</p>
+      </div>
+      <div class="strip-badge">जय<br>श्री राम</div>
+    </section>
+
+    <section class="section two-col" id="politics">
+      <div class="panel">
+        <span class="section-kicker">सियासत</span>
+        <h2>राजनीति और सार्वजनिक जीवन</h2>
+        <p>यहाँ तथ्य-आधारित राजनीतिक खबरें, बयान और घटनाक्रम कार्ड के रूप में जोड़े जा सकते हैं।</p>
+        <a class="text-link" href="#">सियासत सेक्शन →</a>
+      </div>
+      <div class="panel warm">
+        <span class="section-kicker">धर्म</span>
+        <h2 id="dharma">आस्था और दर्शन</h2>
+        <p>मंदिरों, पर्वों, धार्मिक स्थलों और आध्यात्मिक परंपराओं से जुड़ी सामग्री।</p>
+        <a class="text-link" href="#">धर्म सेक्शन →</a>
+      </div>
+    </section>
+
+    <section class="history" id="history">
+      <div class="history-image"><img src="assets/about-shiv.png" alt="भारतीय इतिहास और संस्कृति"></div>
+      <div class="history-copy">
+        <span class="section-kicker">इतिहास • संस्कृति</span>
+        <h2>अपनी जड़ों से जुड़ें</h2>
+        <p>भारत की विरासत, ऐतिहासिक स्थलों, ग्रंथों और सांस्कृतिक परंपराओं पर विशेष सामग्री के लिए यह जगह है।</p>
+        <div class="mini-list">
+          <span>◈ प्राचीन भारत</span><span>◈ मंदिर और विरासत</span><span>◈ ग्रंथ और परंपरा</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="darshan" id="darshan">
+      <div class="section-title">
+        <div><span class="section-kicker">Live Darshan</span><h2>लाइव दर्शन</h2></div>
+        <span class="live-dot">● LIVE</span>
+      </div>
+      <div class="darshan-wrap">
+        <img src="assets/darshan.png" alt="लाइव दर्शन">
+        <div class="darshan-copy">
+          <h3>मंदिर दर्शन और धार्मिक झलकियां</h3>
+          <p>आप यहाँ लाइव स्ट्रीम, मंदिर कैमरा, वीडियो या दैनिक दर्शन की लिंक जोड़ सकते हैं।</p>
+          <button class="cta" type="button" onclick="alert('लाइव दर्शन लिंक यहाँ जोड़ा जा सकता है।')">दर्शन खोलें →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div>
+        <span class="section-kicker">जुड़िए हमारे साथ</span>
+        <h2>सनातन संवाद से जुड़े रहें</h2>
+        <p>नई खबरों और विशेष सामग्री के अपडेट के लिए हमारे सोशल चैनल देखें।</p>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 सनातन संवाद • तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज</p>
+    <div class="footer-brand"><img src="assets/logo.png" alt=""><div><b>सनातन संवाद</b><small>समाचार • संस्कृति • इतिहास</small></div></div>
+    <p>© 2026 सनातन संवाद • तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज़</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
