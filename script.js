@@ -1,85 +1,131 @@
-const $ = (s) => document.querySelector(s);
 
-const dateEl = $("#dateText");
-if (dateEl) dateEl.textContent = new Intl.DateTimeFormat("hi-IN", { dateStyle: "full" }).format(new Date());
+(() => {
+  "use strict";
 
-const ticker = $("#ticker");
-const headlines = [
-  "उत्तर प्रदेश की बड़ी खबरें अब एक ही मंच पर",
-  "अयोध्या • काशी • मथुरा से धर्म और संस्कृति की अपडेट",
-  "सरकार, विपक्ष और जनता — खबरों का पूरा संदर्भ"
-];
-let ti = 0;
-setInterval(() => {
-  ti = (ti + 1) % headlines.length;
-  if (ticker) ticker.textContent = headlines[ti];
-}, 3500);
+  const $ = (s) => document.querySelector(s);
 
-const nav = $("#nav");
-const menu = $("#menuBtn");
-if (menu) menu.onclick = () => nav && nav.classList.toggle("open");
+  const esc = (v = "") => String(v)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-function esc(value) {
-  return String(value ?? "").replace(/[&<>\"]/g, (m) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"
-  }[m]));
-}
+  function normalizeImageUrl(value){
+    if(!value) return "";
+    let u = String(value).trim();
 
-function normalizeImageUrl(value) {
-  const v = String(value || "").trim();
-  if (!v) return "";
-  if (/^https?:\/\//i.test(v)) return v;
-  const base = String(window.SUPABASE_URL || "").replace(/\/$/, "");
-  if (!base) return v;
-  return `${base}/storage/v1/object/public/news-images/${v.replace(/^\/+/, "")}`;
-}
+    // [text](https://...)
+    const md = u.match(/^\[[^\]]*\]\((https?:\/\/[^)\s]+)\)$/i);
+    if(md) u = md[1];
 
-function imageMarkup(url, height) {
-  if (!url) return `<div class="placeholder">📰</div>`;
-  const safe = esc(url);
-  return `<img loading="lazy" decoding="async" style="height:${height}px" src="${safe}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"/><div class="placeholder" style="height:${height}px;display:none">📰</div>`;
-}
+    // <img src="...">
+    const html = u.match(/<img[^>]+src=["']([^"']+)["']/i);
+    if(html) u = html[1];
 
-async function loadNews() {
-  try {
-    if (!window.SUPABASE_URL || !window.SUPABASE_PUBLISHABLE_KEY) return;
-    if (!window.supabase?.createClient) return;
-
-    const client = window.supabase.createClient(
-      window.SUPABASE_URL,
-      window.SUPABASE_PUBLISHABLE_KEY
-    );
-
-    const { data, error } = await client
-      .from("news")
-      .select("*")
-      .eq("published", true)
-      .order("created_at", { ascending: false })
-      .limit(12);
-
-    if (error) {
-      console.warn("Sanatan Samvad news feed:", error.message);
-      return;
-    }
-    if (!data?.length) return;
-
-    const grid = $("#newsGrid");
-    if (!grid) return;
-
-    grid.innerHTML = data.map((n, i) => {
-      const imageUrl = normalizeImageUrl(n.image_url);
-      return `<article class="news-card ${i === 0 ? "featured" : ""}">
-        ${imageMarkup(imageUrl, i === 0 ? 230 : 170)}
-        <div class="pad">
-          <span>${esc(n.category || "उत्तर प्रदेश")}</span>
-          <h3>${esc(n.title || "")}</h3>
-          <p>${esc(n.excerpt || "")}</p>
-        </div>
-      </article>`;
-    }).join("");
-  } catch (e) {
-    console.warn("Sanatan Samvad news feed not ready:", e);
+    // Remove accidental quotes/backticks and whitespace.
+    u = u.replace(/^["'`]+|["'`]+$/g,"").trim();
+    u = u.replace(/&amp;/g,"&");
+    return u;
   }
-}
 
-loadNews();
+  function imageBlock(url, alt, featured){
+    const u = normalizeImageUrl(url);
+    if(!u) return `<div class="placeholder">📰</div>`;
+    return `
+      <div class="news-image-wrap${featured ? "" : ""}">
+        <img class="news-image"
+             src="${esc(u)}"
+             alt="${esc(alt)}"
+             loading="lazy"
+             decoding="async"
+             referrerpolicy="no-referrer"
+             onerror="this.style.display='none';this.parentElement.classList.add('image-failed')">
+        <div class="image-fallback">📰</div>
+      </div>`;
+  }
+
+  // Date
+  const date = $("#dateText");
+  if(date){
+    date.textContent = new Intl.DateTimeFormat("hi-IN",{dateStyle:"full"}).format(new Date());
+  }
+
+  // Ticker
+  const ticker = $("#ticker");
+  const tickerItems = [
+    "उत्तर प्रदेश की बड़ी खबरें अब एक ही मंच पर",
+    "अयोध्या • काशी • मथुरा से धर्म और संस्कृति की अपडेट",
+    "सरकार • विपक्ष • जनता — खबरों का पूरा संदर्भ",
+    "सनातन संवाद — तथ्यों के साथ भारत और भारतीय संस्कृति की आवाज़"
+  ];
+  let t = 0;
+  if(ticker){
+    ticker.textContent = tickerItems[0];
+    setInterval(() => {
+      t = (t + 1) % tickerItems.length;
+      ticker.textContent = tickerItems[t];
+    }, 3500);
+  }
+
+  // Mobile menu
+  const menu = $("#menuBtn"), nav = $("#nav");
+  if(menu && nav){
+    menu.addEventListener("click", () => nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
+  }
+
+  async function loadNews(){
+    const grid = $("#newsGrid");
+    if(!grid) return;
+
+    try{
+      const url = window.SUPABASE_URL;
+      const key = window.SUPABASE_PUBLISHABLE_KEY || window.SUPABASE_ANON_KEY;
+
+      // Keep the existing live config untouched.
+      if(!url || !key || !window.supabase?.createClient){
+        console.log("Live news config is not available.");
+        return;
+      }
+
+      const client = window.supabase.createClient(url,key);
+      const {data,error} = await client
+        .from("news")
+        .select("id,category,title,excerpt,content,image_url,published,published_at,created_at")
+        .eq("published",true)
+        .order("published_at",{ascending:false,nullsFirst:false})
+        .order("created_at",{ascending:false})
+        .limit(12);
+
+      if(error){
+        console.error("Supabase news error:",error);
+        return;
+      }
+      if(!data?.length) return;
+
+      grid.innerHTML = data.map((n,i) => `
+        <article class="news-card ${i===0 ? "featured" : ""}" data-news-id="${esc(n.id || "")}">
+          ${imageBlock(n.image_url,n.title || "सनातन संवाद",i===0)}
+          <div class="pad">
+            <span>${esc(n.category || "उत्तर प्रदेश")}</span>
+            <h3>${esc(n.title || "")}</h3>
+            <p>${esc(n.excerpt || "")}</p>
+          </div>
+        </article>
+      `).join("");
+
+    }catch(err){
+      console.error("News feed failed:",err);
+    }
+  }
+
+  // Make external image links safe without changing the stored DB value.
+  document.addEventListener("error",(e)=>{
+    const img=e.target;
+    if(img?.tagName==="IMG" && img.classList.contains("news-image")){
+      img.style.display="none";
+      img.parentElement?.classList.add("image-failed");
+    }
+  },true);
+
+  loadNews();
+})();
